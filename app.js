@@ -16,11 +16,21 @@ meteoApp.config(function($routeProvider){
   })
 });
 
+// SERVICE PERSONALIZZATI
+meteoApp.service('cittaService', function(){
+   this.citta = 'New York, NY'; 
+});
+
 // CONTROLLER
-meteoApp.controller('homeController', ['$scope', function($scope) {
-  
+meteoApp.controller('homeController', ['$scope', 'cittaService', function($scope, cittaService) {
+  $scope.citta = cittaService.citta;
+    
+  $scope.$watch('citta', function(){
+    cittaService.citta = $scope.citta;    
+  });
 }]);
 
-meteoApp.controller('previsioniController', ['$scope', function($scope) {
+meteoApp.controller('previsioniController', ['$scope', 'cittaService', function($scope, cittaService) {
+  $scope.citta = cittaService.citta;
   
 }]);
