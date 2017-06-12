@@ -32,7 +32,7 @@ meteoApp.controller('homeController', ['$scope', 'cittaService', function($scope
 
 meteoApp.controller('previsioniController', ['$scope', '$resource', 'cittaService', function($scope, $resource, cittaService) {
   $scope.citta = cittaService.citta;
-  $scope.meteoAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=e4ce5e259c3b4f09931b2181616b1d29', { callback: 'JSON_CALLBACK'}, {get: {method: 'JSONP'}});
+  $scope.meteoAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=e4ce5e259c3b4f09931b2181616b1d29', {get: {method: 'JSONP'}});
     
   $scope.meteoResult = $scope.meteoAPI.get({q: $scope.citta, cnt: 2});
     
