@@ -1,0 +1,4 @@
+<img ng-src="https://openweathermap.org/img/w/{{meteo.weather[0].icon}}.png" alt="icon">
+<div class="container">
+<h4>{{ convertiInData(meteo.dt) | date: 'd-M-y' }}</h4> 
+<p>Temperatura Media: {{convertiInCelsius(meteo.temp.day)}}° C</p>
