@@ -14,6 +14,11 @@ meteoApp.config(function($routeProvider){
     templateUrl: 'pages/previsioni.htm',
     controller: 'previsioniController'
   })
+    
+  .when('/previsioni/:giorni', {
+    templateUrl: 'pages/previsioni.htm',
+    controller: 'previsioniController'
+  })
 });
 
 // SERVICE PERSONALIZZATI
@@ -30,11 +35,12 @@ meteoApp.controller('homeController', ['$scope', 'cittaService', function($scope
   });
 }]);
 
-meteoApp.controller('previsioniController', ['$scope', '$resource', 'cittaService', function($scope, $resource, cittaService) {
+meteoApp.controller('previsioniController', ['$scope', '$resource', '$routeParams', 'cittaService', function($scope, $resource, $routeParams, cittaService) {
   $scope.citta = cittaService.citta;
+  $scope.giorni = $routeParams.giorni || '2';
   $scope.meteoAPI = $resource('https://cors.now.sh/http://api.openweathermap.org/data/2.5/forecast/daily?APPID=e4ce5e259c3b4f09931b2181616b1d29', { callback: 'JSON_CALLBACK'}, {get: {method: 'JSONP'}});
     
-  $scope.meteoResult = $scope.meteoAPI.get({q: $scope.citta, cnt: 2});
+  $scope.meteoResult = $scope.meteoAPI.get({q: $scope.citta, cnt: $scope.giorni});
     
    $scope.convertiInData = function(dt) {
         return new Date(dt * 1000);
