@@ -1,5 +1,5 @@
 <img ng-src="https://openweathermap.org/img/w/{{meteoGiorno.weather[0].icon}}.png" alt="icon">
-<div class="container">
+<div class="containerBox">
 <h4>{{ convertiData({ data: meteoGiorno.dt }) | date: formatoData }}</h4> 
   <p>Min:</p>
   <p>{{convertiStandard({ temp: meteoGiorno.temp.min })}}° C</p> 
