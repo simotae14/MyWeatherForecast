@@ -49,3 +49,17 @@ meteoApp.controller('previsioniController', ['$scope', '$resource', '$routeParam
       return Math.round(degK - 273);  
     };
 }]);
+
+// DIRETTIVE
+meteoApp.directive('meteoReport', function(){
+   return {
+      restrict: 'E',
+      templateUrl: 'directives/meteoReport.html',
+      scope: {
+        meteoGiorno: '=',
+        convertiStandard: '&',
+        convertiData: '&',
+        formatoData: '@'
+      }
+   };
+});

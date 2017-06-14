@@ -1,4 +1,8 @@
-<img ng-src="https://openweathermap.org/img/w/{{meteo.weather[0].icon}}.png" alt="icon">
+<img ng-src="https://openweathermap.org/img/w/{{meteoGiorno.weather[0].icon}}.png" alt="icon">
 <div class="container">
-<h4>{{ convertiInData(meteo.dt) | date: 'd-M-y' }}</h4> 
-<p>Temperatura Media: {{convertiInCelsius(meteo.temp.day)}}° C</p>
+<h4>{{ convertiData({ data: meteoGiorno.dt }) | date: formatoData }}</h4> 
+  <p>Min:</p>
+  <p>{{convertiStandard({ temp: meteoGiorno.temp.min })}}° C</p> 
+  <p>Max:</p>
+  <p>{{convertiStandard({ temp: meteoGiorno.temp.max })}}° C</p> 
+</div>

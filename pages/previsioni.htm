@@ -9,14 +9,7 @@ Giorni: <a href="#/previsioni/2" ng-class="{ 'bg-primary': giorni === '2'}">2</a
     <div class="col-md-12">
       <div id="mainbox">
         <div class="card" ng-repeat="meteo in meteoResult.list">
-          <img ng-src="https://openweathermap.org/img/w/{{meteo.weather[0].icon}}.png" alt="icon">
-          <div class="container">
-            <h4>{{ convertiInData(meteo.dt) | date: 'EEE d' }}</h4> 
-              <p>Min:</p>
-              <p>{{convertiInCelsius(meteo.temp.min)}}° C</p> 
-              <p>Max:</p>
-              <p>{{convertiInCelsius(meteo.temp.max)}}° C</p> 
-          </div>
+          <meteo-report meteo-giorno="meteo" converti-standard="convertiInCelsius(temp)" converti-data="convertiInData(data)" formato-data="EEE d"></meteo-report>
         </div>
       </div>
     </div>
