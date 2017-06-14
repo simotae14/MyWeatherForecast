@@ -1,10 +1,13 @@
 // CONTROLLER
-meteoApp.controller('homeController', ['$scope', 'cittaService', function($scope, cittaService) {
+meteoApp.controller('homeController', ['$scope', '$location', 'cittaService', function($scope, $location, cittaService) {
   $scope.citta = cittaService.citta;
     
   $scope.$watch('citta', function(){
     cittaService.citta = $scope.citta;    
   });
+  $scope.submit = function(){
+    $location.path('/previsioni');
+  };
 }]);
 
 meteoApp.controller('previsioniController', ['$scope', '$resource', '$routeParams', 'cittaService', function($scope, $resource, $routeParams, cittaService) {
