@@ -3,7 +3,14 @@
 </p>
 Previsioni per {{citta}}
 <hr>
-Giorni: <a href="#/previsioni/2" ng-class="{ 'bg-primary': giorni === '2'}">2</a> | <a href="#/previsioni/5" ng-class="{ 'bg-primary': giorni === '5'}">5</a> | <a href="#/previsioni/7" ng-class="{ 'bg-primary': giorni === '7'}">7</a>
+Giorni: 
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a href="#/previsioni/2" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '2'}" >2</a>
+    <a href="#/previsioni/5" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '5'}" >5</a>
+    <a href="#/previsioni/7" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '7'}">7</a>
+  </div>
+</div>
 <hr>
 <div class="row">
     <div class="col-md-12">
