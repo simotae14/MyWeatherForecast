@@ -1,0 +1,23 @@
+<p>
+    <a href="#/">Torna alla Ricerca</a>
+</p>
+Previsioni per {{citta}}
+<hr>
+Giorni: 
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a href="#/previsioni/2" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '2'}" >2</a>
+    <a href="#/previsioni/5" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '5'}" >5</a>
+    <a href="#/previsioni/7" class="btn btn-default" ng-class="{ 'btn-primary': giorni === '7'}">7</a>
+  </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+      <div id="mainbox">
+        <div class="card" ng-repeat="meteo in meteoResult.list">
+          <meteo-report meteo-giorno="meteo" converti-standard="convertiInCelsius(temp)" converti-data="convertiInData(data)" formato-data="EEE d"></meteo-report>
+        </div>
+      </div>
+    </div>
+</div>
